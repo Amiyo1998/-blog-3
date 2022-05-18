@@ -1,15 +1,14 @@
 @extends('backend.layouts.master')
 
 @section('title')
-	Post-Admin
+	{{$title}}
 @endsection
-
 
 @section('content')
 <div class="panel panel-primary">
 	<div class="panel-heading">
 		<div class="col-md-9 heading_title">
-			All Information View
+			{{__("All Information View")}}
 		 </div>
 		 <div class="col-md-3 text-right">
 			 <a href="{{ route('posts.create')}}" class="btn btn-sm btn btn-primary"><i class="fa fa-plus-circle"></i> Add Information</a>
@@ -33,12 +32,12 @@
 					<td>{{ $post->title }}</td>
 					<td>{{ $post->body}}</td>
 					<td>
-						<a type="button" href="{{ route('posts.edit', $post->id)}}" class="btn btn-primary" style="margin-top: 10px;">Edit</a>
+						<a type="button" href="{{ route('posts.edit', $post->id)}}" class="btn btn-primary" style="margin-top: 10px;">{{__('Edit')}}</a>
 						{{-- <a href="{{ route('posts.edit', $post->id)}}"><i class="fa fa-pencil-square fa-lg"></i></a> --}}
 						<form action="{{ route('posts.destroy', $post->id)}}" method="POST" style="display: inline-block;">
 							@csrf
 							@method('DELETE')
-							<button class="btn btn-danger" onclick="return confirm('Are you sure to delete?');">Delete</button>
+							<button class="btn btn-danger" onclick="return confirm('Are you sure to delete?');">{{__('Delete')}}</button>
 							{{-- <button style="background-color:#5782a7; color:#fff"  onclick="return confirm('Are you sure to delete?');"><i class="fa fa-trash fa-lg"></i></button> --}}
 						</form>	
 					</td>
@@ -57,7 +56,7 @@
 	<div class="col-md-4">
 	</div>
 	<div class="col-md-4 text-right">
-		{{ $posts->links() }}
+		{{-- {{ $posts->links() }} --}}
 		{{-- <nav aria-label="Page navigation">
 		  <ul class="pagination pagina_cus">
 			<li>

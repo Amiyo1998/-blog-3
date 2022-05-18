@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
    
     public function index()
     {
-       $data['posts'] = Post::paginate(3);
+       $data['title'] = __("Posts HHHHH");
+       //$data['posts'] = Post::all();
+       //$data['posts'] = Post::where()->get();
+       $data['posts'] = Post::paginate(2);
        return view('backend.pages.posts.index', $data);
     }
 
@@ -21,13 +25,8 @@ class PostController extends Controller
     }
 
     
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        $request->validate([
-            'title' => 'required|max:255',
-            'body'  => 'required',
-         ]);
-
          $post = new Post();
          $post->title = $request->title;
          $post->body  = $request->body;

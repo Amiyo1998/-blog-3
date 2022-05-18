@@ -8,10 +8,10 @@
 
           <nav class="nav-menu d-none d-lg-block">
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="{{ route('home')}}">{{__('Home')}}</a></li>
+              <li><a href="{{ route('about')}}">{{__('About')}}</a></li>
+              <li><a href="{{ route('blog')}}">{{__('Blog')}}</a></li>
+              <li><a href="{{ route('contact')}}">{{__('Contact')}}</a></li>
             </ul>
           </nav><!-- .nav-menu -->
         </div>

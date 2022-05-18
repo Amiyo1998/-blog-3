@@ -18,7 +18,7 @@ require __DIR__.'/auth.php';
 
 Route::resource('posts', PostController::class);
 
-Route::get('home', [PageController::class, 'home']);
-Route::get('about', [PageController::class, 'about']);
-Route::get('blog', [PageController::class, 'blog']);
-Route::get('contact', [PageController::class, 'contact']);
+Route::get('home', [PageController::class, 'home'])->name('home');
+Route::get('about', [PageController::class, 'about'])->name('about');
+Route::get('blog', [PageController::class, 'blog'])->name('blog');
+Route::get('contact', [PageController::class, 'contact'])->name('contact');
